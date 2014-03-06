@@ -1,0 +1,74 @@
+/*
+ *= require bootstrap_and_overrides
+ *= require_self
+ */
+
+
+$orange: #ffaa00;
+$blue: #0EBFE9;
+
+/*@mixin fire-effect($color){
+	color: white;
+	text-shadow: 0 0 20px lighten($color, 25%), 10px -10px 30px lighten($color, 10%),
+							-20px -20px 40px $color, 20px -40px 50px darken($color, 10%),
+							-20px -60px 60px darken($color, 15%), 0 -80px 70px darken($color,20%),
+							10px -90px 80px darken($color, 25%);
+}*/
+.navbar-inner{
+	padding: 50px;
+	background-image:url('bg.jpg');}
+.page-header{
+	padding-right: 55px;
+	width: 600px;
+	border-bottom: none;
+
+		h1{
+				text-align: center;
+				color: #009933;
+				text-shadow: black 1px 1px 1px;
+				font-weight: bold;
+				text-transform: uppercase;
+				margin-left: 80px;
+		
+					}
+	}
+ul.nav {
+	li{
+		a{
+			color:grey;
+		}
+	}
+}
+.row-fluid{
+	margin-left: 18%;
+	width: 600px;
+
+
+}
+.container-fluid {
+	color:black;
+	font-size: 18px;
+		.brand{
+			color: white;
+			text-shadow: grey 2px 2px 2px;
+			font-size: 60px;
+		}
+}
+
+
+a.btn.btn-navbar{
+	font-size: 40px;
+	text-shadow:white 3px 3px 3px ;
+
+}
+/*.paging{
+	font-size: 18px;
+	
+	.a {
+		color: orange;
+		&:hover {
+		 text-decoration: none;
+		 color: darken($orange, 10%);
+		}
+	}
+}*/

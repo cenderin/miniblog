@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Miniblog" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+ 
+ 
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Miniblog</a>
+           <div class="container-fluid nav-collapse">
+              <div class="pull-right">
+                <% if logged_in? %>
+                    welcome, <%= current_user %>
+                    <%= link_to('Logout', logout_path, class: 'btn btn-danger') %>
+                <% else %>
+                    <%= link_to('Login, dude.', login_path, class: 'btn btn-success') %>
+                    <%= link_to('sign up', new_user_path, class: 'btn btn-info') %>
+                <% end %>
+            <ul class="nav">
+            
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+      <div class="container-fluid">
+        <div class="tabbable"> 
+         <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Articles</a></li>
+           <li><a href="#tab2" data-toggle="tab">Feedback</a></li>
+             </ul>
+              <div class="tab-content">
+               <div class="tab-pane active" id="tab1">
+                  <div class="row-fluid">
+                    <div class="span9">
+                    <%= bootstrap_flash %>
+                    <%= yield %>
+                    </div>
+                  </div>
+               </div>
+              <div class="tab-pane" id="tab2">
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+                   <p> THIS IS WHERE THE OTHER STUFF GOES</p>
+
+              </div>
+               </div>
+     
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

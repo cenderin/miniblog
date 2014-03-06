@@ -1,0 +1,58 @@
+<%- model_class = Article -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<p> 
+  reviews: <%= star_jones(@article.reviews.average_rating) %>
+</p>
+
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:heading) %>:</strong></dt>
+  <dd><%= @article.heading %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:story) %>:</strong></dt>
+  <dd><%= @article.story %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:publish_date) %>:</strong></dt>
+  <dd><%= @article.publish_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
+  <dd><%= @article.author %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:author_id) %>:</strong></dt>
+  <dd><%= @article.author_id %></dd>
+</dl>
+<% @article.comments.each do |comment| %>
+<% next unless comment.persisted? %>
+   <div class="comment">
+   <%= comment.text_box %> - <em><%= time_ago_in_words(comment.created_at) %></em>
+    </div>
+<%end%>
+
+
+<div class="comment-form-box-thing">
+  <% if @comment.errors.any?%>
+    <h2> WHOA!! Slow down there , turbo</h2>
+    <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+    <li><%= message%></li>
+       <%end%>
+    </ul>
+  <%end%>
+
+  <%= form_for([@article, @comment]) do |f| %>
+  <p>
+    <%= f.label(:text_box) %>
+    <%= f.text_area(:text_box) %>
+  </p>
+  <p>
+    <%= f.submit("whine and complain", class: "btn btn-lg btn-success") %>
+  </p>
+  <% end %>
+</div>
+
+
+
+
+
+
+</div>
